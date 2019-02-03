@@ -19,8 +19,12 @@
         %input.form-check-input.mw-100{ type: "checkbox", id: "exampleCheck4", name: "marigold_select"}
         %label.btn.btn-success.mw-100{ for: "exampleCheck4"}
           Marigold
-      %button.btn.btn-primary{type: "submit"}
-        Reset
+      .row
+        %button.btn.btn-primary{type: "submit"}
+          Confirm weed selection
+      .row
+        %a.btn.btn-secondary{href: "/display_main_screen"}
+          Back to main screen
 
 :javascript
   $('.form-check-input').change(function() {
