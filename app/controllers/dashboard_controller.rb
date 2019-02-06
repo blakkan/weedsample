@@ -30,10 +30,11 @@ class DashboardController < ApplicationController
       pea: 0,
       marigold: 32,
       morning_glory: 8,
+      unidentified: 66,
       pump_time: 20
     },
     {
-      serial_number: "SAMPLESN",
+      serial_number: "SAMPLESN2",
       lon: -122.008913,
       lat: 37.334921,
       timestamp: "2019-01-26 23:22:12 UTC",
@@ -41,6 +42,7 @@ class DashboardController < ApplicationController
       pea: 0,
       marigold: 44,
       morning_glory: 2,
+      unidentified: 92,
       pump_time: 25
     },
     {
@@ -52,6 +54,7 @@ class DashboardController < ApplicationController
       pea: 324,
       marigold: 12,
       morning_glory: 0,
+      unidentified: 16,
       pump_time: 18
     },
     {
@@ -63,6 +66,7 @@ class DashboardController < ApplicationController
       pea: 211,
       marigold: 66,
       morning_glory: 2,
+      unidentified: 7,
       pump_time: 36
     },
     {
