@@ -85,5 +85,4 @@ test:
 #
 production:
   encoding: utf8
-  url: <%= ENV.fetch('DATABASE_URL') %>
   pool: 15
