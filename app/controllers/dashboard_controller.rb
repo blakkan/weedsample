@@ -116,7 +116,10 @@ class DashboardController < ApplicationController
 
 
     respond_to do |format|
-      format.json { render :json => Record.pluck(:entry).to_json }
+
+      puts Record.pluck(:entry).as_json
+
+      format.json { render :json => Record.pluck(:entry).to_json.gsub(/\\/,'') }
       end
     end
 
