@@ -85,5 +85,7 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  database: weedsample_production
+  username: weedsample
+  password: <%= ENV['WEEDSAMPLE_DATABASE_PASSWORD'] %>
   pool: 15
