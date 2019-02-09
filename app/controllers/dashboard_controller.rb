@@ -1,3 +1,4 @@
+require 'rubystats'
 class DashboardController < ApplicationController
 
   def display_main_screen
@@ -115,10 +116,12 @@ class DashboardController < ApplicationController
 
     if ( params[:start_date] == 'sim')
       the_list = []
-      rng = Random.new(params[:end_date].to_i)
+      rngN = Rubystats::NormalDistribution.new(0.0, 0.02)
+      #rng = Random.new(params[:end_date].to_i)
       params[:end_date].to_i.downto(1) do |index|
         angle = rand * 2.0 * 3.1415926535
-        radius = 0.03 * Math::sqrt(rand)
+        #radius = 0.03 * Math::sqrt(rand)
+        radius = rngN.rng
 
         the_list.push( { serial_number: "SPRAYER" + (index % 6).to_s,
           #lon: -122.008973 + ( rand * 0.06 ) - 0.03,
