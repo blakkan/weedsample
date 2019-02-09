@@ -118,8 +118,16 @@ class DashboardController < ApplicationController
       rng = Random.new(params[:end_date].to_i)
       params[:end_date].to_i.downto(1) do |index|
         the_list.push( { serial_number: "SAMPLE" + (index % 6).to_s,
-          lon: -122.008973 + ( rand * 0.02 ) - 0.01,
-          lat: 37.334901 + ( rand * 0.02 ) - 0.01,
+          lon: -122.008973 + ( rand * 0.06 ) - 0.03,
+          lat: 37.334901 + ( rand * 0.06 ) - 0.03,
+          timestamp: (Time.now - index.days).utc.to_s,
+
+          radish: 6 + rand(index) * 2,
+          pea: ( index > 3 ? rand(index) * 10 : 0),
+          marigold: 3 + rand(30),
+          morning_glory: rand(10),
+          pump_time: 5 + rand(index)
+
         } )
       end
 
