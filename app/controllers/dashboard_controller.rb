@@ -113,10 +113,24 @@ class DashboardController < ApplicationController
     #  group("sku_id", "skus.minimum_stocking_level", "skus.name").
     #  having("sum(bins.qty) < max(skus.minimum_stocking_level)")
 
+    if ( params[:start_date] == 'sim')
+      the_list = []
+      rng = Random.new(params[:end_date].to_i)
+      params[:end_date].to_i.downto(1) do |index|
+        the_list.push( { serial_number: "SAMPLE" + (index % 6).to_s,
+          lon: -122.008973 + ( rand * 0.02 ) - 0.01,
+          lat: 37.334901 + ( rand * 0.02 ) - 0.01,
+        } )
+      end
 
+      respond_to do |format|
+        format.json { render :json => the_list.to_json.gsub(/\\/,'').gsub(/\[\"/, "[").gsub(/\"\]/, "]").gsub('}","{', "},{" ) }
+      end
 
-    respond_to do |format|
-      format.json { render :json => Record.pluck(:entry).to_json.gsub(/\\/,'').gsub(/\[\"/, "[").gsub(/\"\]/, "]").gsub('}","{', "},{" ) }
+    else
+      respond_to do |format|
+        format.json { render :json => Record.pluck(:entry).to_json.gsub(/\\/,'').gsub(/\[\"/, "[").gsub(/\"\]/, "]").gsub('}","{', "},{" ) }
+      end
     end
   end
 
