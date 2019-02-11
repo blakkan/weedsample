@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get 'reset_data' => 'dashboard#reset_data'
   get 'completely_clear_data' => 'dashboard#completely_clear_data'
 
+  get 'return_sample_images/:sn(.:format)' => "dashboard#return_sample_images"
+
 end

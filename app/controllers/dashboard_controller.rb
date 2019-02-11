@@ -107,6 +107,7 @@ class DashboardController < ApplicationController
     return
   end
 
+
   def return_sample_data
 
     #my_rel2 = Bin.joins("LEFT JOIN skus ON skus.id = bins.sku_id").
@@ -134,6 +135,7 @@ class DashboardController < ApplicationController
           pea: ( index > 3 ? rand(index) * 10 : 0),
           marigold: 3 + rand(30),
           morning_glory: rand(10),
+          unidentified: rand(index) + 21,
           pump_time: 5 + rand(index)
 
         } )
@@ -149,5 +151,22 @@ class DashboardController < ApplicationController
       end
     end
   end
+
+
+  def return_sample_images
+
+    #my_rel2 = Bin.joins("LEFT JOIN skus ON skus.id = bins.sku_id").
+    #  select('sku_id, skus.name, sum(bins.qty) as quantity, skus.minimum_stocking_level as reorder').
+    #  group("sku_id", "skus.minimum_stocking_level", "skus.name").
+    #  having("sum(bins.qty) < max(skus.minimum_stocking_level)")
+
+
+    respond_to do |format|
+      format.json { render :json =>   Picture.where( sn: params[:sn] ).as_json(only: [:sn, :created_at, :url]) }
+    end
+
+  end
+
+
 
 end
