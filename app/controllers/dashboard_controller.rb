@@ -27,10 +27,10 @@ class DashboardController < ApplicationController
   def reset_data
     default_data = [
     {
-      serial_number: "SAMPLESN",
+      serial_number: "SPRAYER0000",
       lon: -122.008973,
       lat: 37.334901,
-      timestamp: "2019-01-22 22:00:48 UTC",
+      timestamp: "2019-01-22T22:00:48Z",
       radish: 437,
       pea: 0,
       marigold: 32,
@@ -39,10 +39,10 @@ class DashboardController < ApplicationController
       pump_time: 20
     },
     {
-      serial_number: "SAMPLESN2",
+      serial_number: "SPRAYER0002",
       lon: -122.008913,
       lat: 37.334921,
-      timestamp: "2019-01-26 23:22:12 UTC",
+      timestamp: "2019-01-26T23:22:12Z",
       radish: 621,
       pea: 0,
       marigold: 44,
@@ -51,10 +51,10 @@ class DashboardController < ApplicationController
       pump_time: 25
     },
     {
-      serial_number: "SAMPLESN",
+      serial_number: "SPRAYER0005))))",
       lon: -122.008973,
       lat: 37.334901,
-      timestamp: "2019-02-01 16:16:45 UTC",
+      timestamp: "2019-02-01T16:16:44Z",
       radish: 0,
       pea: 324,
       marigold: 12,
@@ -63,10 +63,10 @@ class DashboardController < ApplicationController
       pump_time: 18
     },
     {
-      serial_number: "SAMPLESN",
+      serial_number: "SPRAYER0000",
       lon: -122.008973,
       lat: 37.334901,
-      timestamp: "2019-02-02 18:45:11 UTC",
+      timestamp: "2019-02-02T18:45:11Z",
       radish: 0,
       pea: 211,
       marigold: 66,
@@ -75,10 +75,10 @@ class DashboardController < ApplicationController
       pump_time: 36
     },
     {
-      serial_number: "SAMPLESN",
+      serial_number: "SPRAYER0000",
       lon: -122.008973,
       lat: 37.334901,
-      timestamp: "2019-02-03 17:17:31 UTC",
+      timestamp: "2019-02-03T17:17:31Z",
       radish: 2,
       pea: 150,
       marigold: 3,
@@ -124,12 +124,12 @@ class DashboardController < ApplicationController
         #radius = 0.03 * Math::sqrt(rand)
         radius = rngN.rng
 
-        the_list.push( { serial_number: "SPRAYER" + (index % 6).to_s,
+        the_list.push( { serial_number: "SPRAYER000" + (index % 6).to_s,
           #lon: -122.008973 + ( rand * 0.06 ) - 0.03,
           #lat: 37.334901 + ( rand * 0.06 ) - 0.03,
           lon: -122.008973 + radius * Math::cos(angle),
           lat: 37.334901 + radius * Math::sin(angle),
-          timestamp: (Time.now - index.days - rand(4).hours - rand(30).minutes - rand(50).seconds).utc.to_s,
+          timestamp: (Time.now - index.days - rand(4).hours - rand(30).minutes - rand(50).seconds).utc.iso8601,
 
           radish: 6 + rand(index) * 2,
           pea: ( index > 3 ? rand(index) * 10 : 0),
