@@ -115,7 +115,10 @@ class DashboardController < ApplicationController
     #  group("sku_id", "skus.minimum_stocking_level", "skus.name").
     #  having("sum(bins.qty) < max(skus.minimum_stocking_level)")
 
-    if ( params[:start_date] == 'sim')
+    if ( params[:start_date] == 'simd')
+      srand 42
+    end
+    if ( params[:start_date] =~ /simd?/)
       the_list = []
       rngN = Rubystats::NormalDistribution.new(0.0, 0.02)
       #rng = Random.new(params[:end_date].to_i)
