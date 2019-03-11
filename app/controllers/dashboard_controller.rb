@@ -20,7 +20,7 @@ class DashboardController < ApplicationController
     else
       Record.create!( entry: what_was_read.to_json )
     end
-    render "display_simulator"
+    render "display_main_screen"
     return
   end
 
@@ -89,22 +89,23 @@ class DashboardController < ApplicationController
   Record.destroy_all
   default_data.each{ |record| Record.create!( entry: record.to_json) }
 
-  render "display_simulator"
+  render "display_main_screen"
   return
 
   end
 
   def completely_clear_data
     Record.destroy_all
-    render "display_simulator"
+    render "display_main_screen"
   end
 
   def display_simulator
   end
 
   def return_data
-    render plain: "no data"
-    return
+    respond_to do |format|
+      format.json { render :json => Record.pluck(:entry).to_json.gsub(/\\/,'').gsub(/\[\"/, "[").gsub(/\"\]/, "]").gsub('}","{', "},{" ) }
+    end
   end
 
 

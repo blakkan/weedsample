@@ -1,14 +1,19 @@
 .container-fluid
   %h3
-    Sprayer controls
+    Database access
 %form.ml-2.ml-sm-2.ml-md-2.ml-lg-4.ml-xl-4
-  .row
+  .row.my-2
     .col-12.col.md-12.col-lg-6.col-xl-6.pl-6
-      %a.btn.btn-primary{href: "/display_select_weed_screen"}
-        Select Weeds to kill
+      %a.btn.btn-primary{href: "/display_upload_screen"}
+        Display Append JSON screen
     .col-lg-6.col-xl-6.pl-6
-  .row
+  .row.my-2
     .col-12.col.md-12.col-lg-6.col-xl-6.pl-6
-      %a.btn.btn-primary{href: "/display_statistics_screen"}
-        View Statistics
+      %a.btn.btn-primary{href: "/completely_clear_data"}
+        Clear all Data
+    .col-lg-6.col-xl-6.pl-6
+  .row.my-2
+    .col-12.col.md-12.col-lg-6.col-xl-6.pl-6
+      %a.btn.btn-primary{href: "/return_data/2000-01-01/2020-01-01.json"}
+        Display all Data
     .col-lg-6.col-xl-6.pl-6
