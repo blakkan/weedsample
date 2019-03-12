@@ -26,7 +26,7 @@ development:
   <<: *default
   username: john
   password: john
-  database: spray_development
+  database: weedsample_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -62,7 +62,7 @@ test:
   <<: *default
   username: john
   password: john
-  database: spray_test
+  database: weedsample_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

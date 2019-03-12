@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'display_upload_screen' => 'dashboard#display_upload_screen'
   get 'display_simulator' => 'dashboard#display_simulator'
   put 'upload_data' => 'dashboard#upload_data'
+  post 'upload_data' => 'dashboard#upload_data'
+  post 'upload_data_rest' => 'dashboard#upload_data_rest'
   get 'reset_data' => 'dashboard#reset_data'
   get 'completely_clear_data' => 'dashboard#completely_clear_data'
 

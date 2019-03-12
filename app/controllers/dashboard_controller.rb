@@ -1,6 +1,8 @@
 require 'rubystats'
 class DashboardController < ApplicationController
 
+  skip_before_action :verify_authenticity_token, only: [:upload_data_rest]
+
   def display_main_screen
   end
 
@@ -20,6 +22,17 @@ class DashboardController < ApplicationController
     else
       Record.create!( entry: what_was_read.to_json )
     end
+    render "display_main_screen"
+    return
+  end
+
+  def upload_data_rest
+    puts params[:json_entry]
+
+    #puts what_was_read.to_json
+      Record.create!( entry: params[:json_entry].to_json )
+    #  Record.create!( entry: what_was_read.to_json )
+
     render "display_main_screen"
     return
   end
